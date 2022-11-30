@@ -1,0 +1,272 @@
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" style="margin-left:20px; margin-right: 400px; padding-right: 400px;" routerLink="" >Banking</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" style="margin-right: 20px;" routerLink="/userlogin">Login </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" style="margin-right: 20px;"  routerLink="/register">Register Internet Banking</a>
+      </li>
+      <li class="nav-item">
+        <a class="btn btn-light" style="margin-right: 20px;" routerLink="/createAccount">Create New Account</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/contactus">Contact Us</a>
+    </li>
+    </ul>
+  </div>
+</nav>
+    
+
+
+
+
+<div class="container">
+  <div class="row">
+      <div class="col-xs-12 col-sm-6 col-md-8 col-centered">
+          <div class="maintxt">
+            <div style="text-align: center;">
+              <label><h1 class="box1">Open Savings Account</h1></label>
+          </div>
+          
+          <div class="box2 box">
+              <label><h3>Personal Details</h3></label>
+          </div>          
+            <form #myForm="ngForm" class="row g-3" (ngSubmit)="onSubmit(myForm)">
+
+              <div class="mb-3 row">
+                  <label for="Title" class="col-sm-2 col-form-label"><h5>Title</h5></label>
+                  <div class="col-sm-5">
+                      <input #title="ngModel" placeholder="e.g. Mr./Ms./Mrs." type="text" class="form-control" name="title" ngModel>
+                    </div>
+              </div>
+              
+              
+              <div class="mb-3 row">
+                  <label for="firstName" class="col-sm-2 col-form-label"><h5>First Name*</h5></label>
+                  <div class="col-sm-5">
+                    <input required #firstName="ngModel" placeholder="Enter First Name" type="text" class="form-control" name="firstName" ngModel>
+                    <div *ngIf="firstName.hasError('required')" [ngStyle]="{color:'red'}">Please Enter First Name</div>
+                  </div>
+              </div>
+          
+              <div class="mb-3 row">
+                  <label for="MiddleName" class="col-sm-2 col-form-label"><h5>Middle Name</h5></label>
+                  <div class="col-sm-5">
+                    <input #middleName="ngModel" placeholder="Enter Middle Name" type="text" class="form-control" name="middleName" ngModel>
+                  </div>
+              </div>
+          
+          
+              <div class="mb-3 row">
+                  <label for="lastName" class="col-sm-2 col-form-label"><h5>Last Name*</h5></label>
+                  <div class="col-sm-5">
+                    <input required #lastName="ngModel" placeholder="Enter Last Name" type="text" class="form-control" name="lastName" ngModel>
+                    <div *ngIf="lastName.hasError('required')" [ngStyle]="{color:'red'}">Please Enter Last Name</div>
+                  </div>
+              </div>
+          
+          
+              <div class="mb-3 row">
+                  <label for="fatherName" class="col-sm-2 col-form-label"><h5>Father's Name*</h5></label>
+                  <div class="col-sm-5">
+                    <input required #fatherName="ngModel" placeholder="Enter Father's Name"  type="text" class="form-control" name="fatherName" ngModel>
+                    <div *ngIf="fatherName.hasError('required')" [ngStyle]="{color:'red'}">Please Enter Father's Name</div>
+                  </div>
+              </div>
+          
+              <div class="mb-3 row">
+                  <label for="mobileNumber" class="col-sm-2 col-form-label"><h5>Mobile Number*</h5></label>
+                  <div class="col-sm-5">
+                    <input required #mobileNumber="ngModel" placeholder="e.g. 9876543210" type="text" class="form-control" name="mobileNumber" ngModel>
+                    <div *ngIf="mobileNumber.hasError('required')" [ngStyle]="{color:'red'}">Please enter Mobile Number</div>
+                  </div>
+              </div>
+          
+              <div class="mb-3 row">
+                  <label for="gender" class="col-sm-2 col-form-label"><h5>Gender</h5></label>
+                  <div class="col-sm-5">
+                    <input #gender="ngModel" placeholder="Enter Gender" type="text" class="form-control" name="gender" ngModel>
+                  </div>
+              </div>
+          
+          
+              <div class="mb-3 row">
+                  <label for="email" class="col-sm-2 col-form-label"><h5>Email ID*</h5></label>
+                  <div class="col-sm-5">
+                    <input required #emailId="ngModel" placeholder="e.g. abc@gmail.com" type="email" class="form-control" name="emailId" ngModel>
+                    <div *ngIf="emailId.hasError('required')" [ngStyle]="{color:'red'}">Please Enter Email ID</div>
+                  </div>
+              </div>
+          
+              <div class="mb-3 row">
+                  <label for="aadhar" class="col-sm-2 col-form-label"><h5>Aadhar Card Number*</h5></label>
+                  <div class="col-sm-5">
+                    <input required #aadhar="ngModel" placeholder="e.g. 1234567890123456" type="text" class="form-control" name="aadhar" ngModel>
+                    <div *ngIf="aadhar.hasError('required')" [ngStyle]="{color:'red'}">Please Enter Aadhar Number</div>
+                  </div>
+              </div>
+          
+              <div class="mb-3 row">
+                  <label for="dob" class="col-sm-2 col-form-label"><h5>Date of Birth*</h5></label>
+                  <div class="col-sm-5">
+                    <input required #dob="ngModel" type="date" class="form-control" name="dob" ngModel>
+                    <div *ngIf="dob.hasError('required')" [ngStyle]="{color:'red'}">Please Enter D.O.B.</div>
+                  </div>
+              </div>
+          
+              <div class="mb-3 row">
+                  <label for="Residential Address" class="col-sm-2 col-form-label"><h5>Residential Address</h5></label>
+              </div>
+          
+          
+              <div class="mb-3 row">
+                  <label for="addressline1" class="col-sm-2 col-form-label"><h5>a) Address Line 1*</h5></label>
+                  <div class="col-sm-4">
+                    <input required #addressline1="ngModel" type="text" class="form-control" name="addressline1" ngModel>
+                    <div *ngIf="addressline1.hasError('required')" [ngStyle]="{color:'red'}">Please Enter Address</div>
+                  </div>
+              </div>
+              <div class="mb-3 row">
+                  <label for="addressline2" class="col-sm-2 col-form-label"><h5>b) Address Line 2</h5></label>
+                  <div class="col-sm-4">
+                    <input #addressline2="ngModel" type="text" class="form-control" name="addressline2" ngModel>
+                  </div>
+              </div>
+              <div class="mb-3 row">
+                  <label for="landmark" class="col-sm-2 col-form-label"><h5>c) Landmark</h5></label>
+                  <div class="col-sm-4">
+                    <input #landmark="ngModel" type="text" class="form-control" name="landmark" ngModel>
+                  </div>
+              </div>
+              <div class="mb-3 row">
+                  <label for="state" class="col-sm-2 col-form-label"><h5>d) State*</h5></label>
+                  <div class="col-sm-4">
+                    <input required #state="ngModel" type="text" class="form-control" name="state" ngModel>
+                    <div *ngIf="state.hasError('required')" [ngStyle]="{color:'red'}">Please Enter State</div>
+                  </div>
+              </div>
+              <div class="mb-3 row">
+                  <label for="city" class="col-sm-2 col-form-label"><h5>e) City*</h5></label>
+                  <div class="col-sm-4">
+                    <input required #city="ngModel" type="text" class="form-control" name="city" ngModel>
+                    <div *ngIf="city.hasError('required')" [ngStyle]="{color:'red'}">Please Enter City</div>
+                  </div>
+              </div>
+              <div class="mb-3 row">
+                  <label for="pincode" class="col-sm-2 col-form-label"><h5>e) Pincode</h5></label>
+                  <div class="col-sm-4">
+                    <input #pincode="ngModel" type="number" class="form-control" name="pincode" ngModel>
+                  </div>
+              </div>
+          
+              <div class="mb-3 row">
+                  <label for="permanentAddress" class="col-sm-2 col-form-label"><h5>Permanent Address</h5></label>
+              </div>
+          
+              <div class="mb-3 row">
+                  <label for="permanentAddress1" class="col-sm-2 col-form-label"><h5>a) Address Line 1</h5></label>
+                  <div class="col-sm-4">
+                    <input #permanentAddress1="ngModel" type="text" class="form-control" name="permanentAddress1" ngModel>
+                  </div>
+              </div>
+              <div class="mb-3 row">
+                  <label for="permanentAddress2" class="col-sm-2 col-form-label"><h5>b) Address Line 2</h5></label>
+                  <div class="col-sm-4">
+                    <input #permanentAddress2="ngModel" type="text" class="form-control" name="permanentAddress2" ngModel>
+                  </div>
+              </div>
+              <div class="mb-3 row">
+                  <label for="permanentLandmark" class="col-sm-2 col-form-label"><h5>c) Landmark</h5></label>
+                  <div class="col-sm-4">
+                    <input #permanentLandmark="ngModel" type="text" class="form-control" name="permanentLandmark" ngModel>
+                  </div>
+              </div>
+              <div class="mb-3 row">
+                  <label for="permanentState" class="col-sm-2 col-form-label"><h5>d) State</h5></label>
+                  <div class="col-sm-4">
+                    <input #permanentState="ngModel" type="text" class="form-control" name="permanentState" ngModel>
+                  </div>
+              </div>
+              <div class="mb-3 row">
+                  <label for="permanentCity" class="col-sm-2 col-form-label"><h5>e) City</h5></label>
+                  <div class="col-sm-4">
+                    <input #permanentCity="ngModel" type="text" class="form-control" name="permanentCity" ngModel>
+                  </div>
+              </div>
+              <div class="mb-3 row">
+                  <label for="permanentPincode" class="col-sm-2 col-form-label"><h5>e) Pincode</h5></label>
+                  <div class="col-sm-4">
+                    <input #permanentPincode="ngModel" type="number" class="form-control" name="permanentPincode" ngModel>
+                  </div>
+              </div>
+          
+              <div class="mb-3 row">
+                  <label for="OccupationDetails" class="col-sm-2 col-form-label"><h5>Occupation Details</h5></label>
+              </div>
+          
+          
+              <div class="mb-3 row">
+                  <label for="occupation" class="col-sm-2 col-form-label"><h5>a) Occupation</h5></label>
+                  <div class="col-sm-4">
+                    <input #occupation="ngModel" type="text" class="form-control" name="occupation" ngModel>
+                  </div>
+              </div>
+              <div class="mb-3 row">
+                  <label for="sourceOfIncome" class="col-sm-2 col-form-label"><h5>b) Source of Income</h5></label>
+                  <div class="col-sm-4">
+                    <input #sourceOfIncome="ngModel" type="text" class="form-control" name="souceOfIncome" ngModel>
+                  </div>
+              </div>
+              <div class="mb-3 row">
+                  <label for="grossAnnualIncome" class="col-sm-2 col-form-label"><h5>c) Gross Annual Income*</h5></label>
+                  <div class="col-sm-4">
+                    <input #grossAnnualIncome="ngModel" type="number" class="form-control" name="grossAnnualIncome" ngModel>
+                  </div>
+              </div>
+          
+              <div class="mb-3 row">
+                  <label for="DebitCard" class="col-sm-2 col-form-label"><h5>Debit/ATM Card</h5></label>
+              </div>
+          
+              <div class="col-12">
+                  <div class="form-check">
+                  <label for="debitCard">Do you want a Debit Card ?</label>
+                  <input #debitCard="ngModel" class="form-check-input" type="checkbox" value="" name="debitCard" ngModel>
+              </div>
+              </div>
+              
+              <div class="col-12">
+                <div class="form-check">
+                  <label for="netBanking">Do you want Netbanking ?</label>
+                  <input #netBanking="ngModel" class="form-check-input" type="checkbox" value="" name="netBanking" ngModel>
+                </div>
+              </div>
+          
+              <div class="col-12">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="Termsandconditions">
+                   I Agree to Terms & Conditions*
+    
+                </div>
+              </div>
+              <div class="col-12">
+                <button class="btn btn-success" type="submit" style="margin-left: 25%;">Submit form</button>
+              </div>
+            </form>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+
+<div style="border-bottom: 2px solid rgb(71, 179, 146);">
+  
+</div>
+<!--{{myForm.value|json}}-->  

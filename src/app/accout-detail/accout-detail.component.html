@@ -1,0 +1,115 @@
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" style="margin-left:20px; margin-right: 200px; padding-right: 200px;" routerLink="" >Banking</a>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+            <a class="nav-link" style="margin-right: 20px;" routerLink="/maindashboard">Dashboard </a>
+          </li>
+        <li class="nav-item active">
+          <a class="btn btn-light" style="margin-right: 20px;" routerLink="/accountdetail">Account Details </a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link" style="margin-right: 20px;" routerLink="/accountStatement">Account Statement </a>
+          </li>
+        <li class="nav-item dropdown" ngbDropdown>
+          <a class="nav-link dropdown-toggle"  role="button" data-bs-toggle="dropdown"  ngbDropdownToggle>
+            Fund Transfer
+          </a>
+          <ul class="dropdown-menu"  ngbDropdownMenu aria-labelledby="navbarScrollingDropdown">
+            <li ngbDropdownItem><a class="dropdown-item" routerLink="/addPayeee"> Add Payee</a></li>
+            <li ngbDropdownItem><a class="dropdown-item" routerLink="/payeeList">Payee List</a></li>
+            <li ngbDropdownItem><a class="dropdown-item" routerLink="/imps">IMPS</a></li>
+            <li ngbDropdownItem><a class="dropdown-item" routerLink="/neft">NEFT</a></li>
+            <li ngbDropdownItem><a class="dropdown-item" routerLink="/rtgs">RTGS</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" style="margin-right: 20px;"  routerLink="/changePassword">Reset Login Password</a>
+        </li>
+        <li class="nav-item">
+            <a  class="nav-link" (click)="deleteCookie()">Logout</a>
+          </li>
+      </ul>
+    </div>
+</nav>
+<div class="container-fluid  p-2 my-4 bg-dark text-white" style="text-align:center;">
+    <h1 style="transform:translateY(5px);">Account Details</h1>
+  </div> 
+  
+  <div class="container" >
+  <table class="table table-striped">
+  <thead class="thead-light"></thead>
+  <tbody>
+  
+    <tr>
+    <th >Title</th>
+    <td>{{currentCustomer.title}}</td>
+    </tr> 
+        <tr>
+            <th scope="col">First Name</th>
+            <td>{{currentCustomer.firstName}}</td>
+            </tr>
+          
+            <tr>
+            <th scope="col">Middle Name</th>
+            <td>{{currentCustomer.middleName}}</td>
+            </tr>
+          
+            <tr>
+              <th scope="col">Last Name</th>
+              <td>{{currentCustomer.lastName}}</td>
+            </tr>
+          <tr>
+            <th scope="col">Gender</th>
+            <td>{{currentCustomer.gender}}</td>
+          </tr>
+            <tr>
+              <th scope="col">Father's Name</th>
+              <td>{{currentCustomer.fatherName}}</td>
+            </tr>
+          
+            <tr>
+              <th scope="col">Phone Number</th>
+              <td>{{currentCustomer.mobileNumber}}</td>
+            </tr>
+          
+            <tr>
+              <th scope="col">Aadhar Number</th>
+              <td>{{currentCustomer.aadhar}}</td>
+            </tr>
+          
+            <tr>
+              <th scope="col">Email Id</th>
+              <td>{{currentCustomer.emailId}}</td>
+            </tr>
+          
+            <tr>
+              <th scope="col">State</th>
+              <td>{{currentCustomer.state}}</td>
+            </tr>
+          
+            <tr>
+            <th scope="col">City</th>
+            <td>{{currentCustomer.city}}</td>
+            </tr>
+          
+            <tr>
+              <th scope="col">Pincode</th>
+              <td>{{currentCustomer.pincode}}</td>
+            </tr>
+          
+            <tr>
+                <th scope="col">AddressLine1</th>
+                <td>{{currentCustomer.addressline1}}</td>
+            </tr>
+          
+            <tr>
+              <th scope="col">AddressLine2</th>
+              <td>{{currentCustomer.addressline2}}</td>
+            </tr>
+          </tbody>
+          </table>
+          </div><br/>
+  
+  

@@ -1,0 +1,31 @@
+export class Customer{
+    customerId:number;
+    title:string;
+    firstName:string;
+    middleName:string;
+    lastName:string;
+    fatherName:string;
+    mobileNumber:string;
+    gender:string;
+    emailId:string;
+    aadhar:string;
+    dob:string;
+    addressline1:string;
+    addressline2:string;
+    landmark:string;
+    state:string;
+    city:string;
+    pincode:number;
+    permanentAddress1:string;
+    permanentAddress2:string;
+    permanentLandmark:string;
+    permanentState:string;
+    permanentCity:string;
+    permanentPincode:number;
+    occupation:string;
+    sourceOfIncome:string;
+    grossAnnualIncome:number;
+    debitCard:boolean;
+    netBanking:boolean;
+    approveStatus:boolean;
+}

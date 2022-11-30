@@ -1,0 +1,58 @@
+<div>
+    <nav class="navbar navbar-dark justify-content-center" style="background-color: #008000;">
+        <span class="navbar-brand mb-0 h1">Admin Dashboard</span>
+    </nav>  
+</div>
+
+<div class="container-fluid  p-2 my-4 bg-dark text-white">
+    <h1 style="transform:translateY(5px); text-align: center;">Pending Customers List</h1>
+  </div> 
+
+<div class="container">
+<table class="table table-bordered">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Customer-ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Email-ID</th>
+        <th scope="col">Address</th>
+        <th scope="col">AADHAR Number</th>
+        <th scope="col">Mobile Number</th>
+        <th scope="col">Approve Status</th>
+        <th scope="col">Debit Card</th>
+        <th scope="col">Net Banking</th>
+        
+      </tr>
+    </thead>
+  <tbody>
+        <tr *ngFor="let newUser of customerList">
+            <td>{{newUser.customerId}}</td>  
+            <td>{{newUser.title }} {{newUser.firstName}} {{newUser.middleName}} {{newUser.lastName}}</td>
+            <td>{{newUser.emailId}}</td>
+            <td>{{newUser.addressline1+" "+newUser.city+" "+newUser.state}}</td>
+            <td>{{newUser.aadhar}}</td>
+            <td>{{newUser.mobileNumber}}</td>
+            <ng-template [ngIf]="newUser.approveStatus===false" [ngIfElse]="elseBlock">
+                
+                <td>Rejected</td>
+            </ng-template>
+            <ng-template #elseBlock>
+                <td>Waiting</td>
+            </ng-template>
+
+            <td>{{newUser.debitCard?'Yes':'No'}} </td>
+            <td>{{newUser.netBanking? 'Yes':'No'}}</td>
+            <td><button type="button" class="btn btn-success" style="margin-right:20px "(click)="Approval(newUser.customerId)">Approve</button></td>
+            <td><button type="button" class="btn btn-danger" style="margin-right:20px" (click)="Reject(newUser.customerId)">Reject</button></td>
+        </tr>
+    </tbody>
+</table>
+</div>
+
+<div class="container">
+    <div class="col-md-12 text-center">
+        
+        <button type="buttton" class="btn btn-primary" (click)="deleteCookie()">Log out</button>
+    </div>
+</div>
+

@@ -1,0 +1,9 @@
+.maintxt {
+    background-image: url("../../assets/pass.png");
+    min-height : 200%;
+    min-width : 160%;
+    background-size:100% 100%;
+    background-repeat:no-repeat;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}

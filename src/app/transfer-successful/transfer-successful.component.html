@@ -1,0 +1,99 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" style="margin-left:20px; margin-right: 200px; padding-right: 200px;" routerLink="" >Banking</a>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" style="margin-right: 20px;" routerLink="/maindashboard">Dashboard</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" style="margin-right: 20px;" routerLink="/accountdetail">Account Details </a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" style="margin-right: 20px;" routerLink="/accountStatement">Account Statement </a>
+        </li>
+        <li class="nav-item dropdown" ngbDropdown>
+          <a class="nav-link dropdown-toggle"  role="button" data-bs-toggle="dropdown"  ngbDropdownToggle>
+            Fund Transfer
+          </a>
+          <ul class="dropdown-menu"  ngbDropdownMenu aria-labelledby="navbarScrollingDropdown">
+            <li ngbDropdownItem><a class="dropdown-item" routerLink="/addPayee">Payee</a></li>
+            <li ngbDropdownItem><a class="dropdown-item" routerLink="/payeeList">Payee List</a></li>
+            <li ngbDropdownItem><a class="dropdown-item" routerLink="/imps">IMPS</a></li>
+            <li ngbDropdownItem><a class="dropdown-item" routerLink="/neft">NEFT</a></li>
+            <li ngbDropdownItem><a class="dropdown-item" routerLink="/rtgs">RTGS</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" style="margin-right: 20px;"  routerLink="/changePassword">Reset LogIn Password</a>
+        </li>
+        <li class="nav-item">
+            <a  class="nav-link" (click)="deleteCookie()">Logout</a>
+          </li>
+      </ul>
+    </div>
+
+</nav>
+
+
+<div class="container box">
+    <div class="box">
+        <h2 style="text-align:center;">Transfer Successful</h2>
+        </div>
+<table>
+<tr>
+    <th>
+        Reference ID
+    </th>
+    <td> 46372810274
+    </td>
+</tr>
+<tr>
+    <th>
+        Mode 
+    </th>
+    <td>
+        {{transactmode}}
+    </td>
+</tr>
+<tr>
+    <th>
+        Paid to Account
+    </th>
+    <td>
+        {{paidTo}}
+    </td>
+</tr>
+<tr>
+    <th>
+        Amount
+    </th>
+    <td>
+       Rs. {{amount}}
+    </td>
+</tr>
+<tr>
+    <th>
+        From Account
+    </th>
+    <td>
+        {{fromAcc}}
+    </td>
+</tr>
+<tr>
+    <th>
+        On
+    </th>
+    <td>
+        {{date}}
+    </td>
+</tr>
+<tr>
+    <th>
+       Remarks
+    </th>
+    <td>
+        {{remarks}}
+    </td>
+</tr>
+    </table>
+</div>

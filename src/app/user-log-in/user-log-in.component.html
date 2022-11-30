@@ -1,0 +1,69 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" style="margin-left: 20px; margin-right: 400px; padding-right: 400px;" routerLink="">Banking</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="btn btn-light" style="margin-right: 20px;" routerLink="/userlogin">Login </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" style="margin-right: 20px;"  routerLink="/register">Register Internet Banking</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" style="margin-right: 20px;" routerLink="/createAccount">Create New Account</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/contactus">Contact Us</a>
+      </li>
+      </ul>
+    </div>
+  </nav>
+  <section class="vh-100">
+    <div class="container-fluid h-custom">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-md-9 col-lg-6 col-xl-5">
+       <img src="/assets/bank2.png" width="1000px" height="1000px"
+            class="img-fluid" alt="Sample image">
+      </div>
+        <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+          <form #loginform="ngForm">
+      
+                   <!-- User Id input -->
+            <div class="form-outline mb-4">
+                <p><label for="logId"><strong>Enter Login ID</strong></label></p>
+              <input class="input-field "  type="text" placeholder="e.g. 5001" name="logId" [(ngModel)]="LogId" class="form-control form-control-lg" >
+            </div>
+  
+            <!-- Password input -->
+            
+             <div class="form-outline mb-3">
+              <p><label for="logInPassword"><strong>Enter Login Password</strong></label></p>
+              <input class="input-field " required 
+              type="password" name="logInPassword" placeholder="Enter Password" [(ngModel)]="LogInPassword" class="form-control form-control-lg">
+            </div>
+  
+            <div class="d-flex justify-content-between align-items-center">
+              
+              
+              <a routerLink="/forgetLogId" class="text-body">Forget Login ID</a>
+              <a routerLink="/changePassword" class="text-body"> Change Login Password?</a>
+            </div>
+  
+            <div class="text-center text-lg-start mt-4 pt-2">
+              <button type="submit" (click)="getCookies()" class="btn btn-primary btn-lg" 
+                style="padding-left: 2.5rem; padding-right: 2.5rem;"  >Login</button>
+              <p class="small fw-bold mt-2 pt-1 mb-0">First Time User? <a routerLink="/createAccount" class="link-danger">Register</a></p>
+              <p class="small fw-bold mt-2 pt-1 mb-0">Set new Transaction & Login Password? <a routerLink="/forgetPassword" class="link-danger">Click here</a></p>
+            </div>
+  
+          </form>
+        </div>
+      </div>
+    </div>
+    
+  </section>
+  
+  
+  

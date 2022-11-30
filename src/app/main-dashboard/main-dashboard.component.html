@@ -1,0 +1,75 @@
+
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" style="margin-left:20px; margin-right: 200px; padding-right: 200px;" routerLink="" >Banking</a>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="btn btn-light" style="margin-right: 20px;" routerLink="/maindashboard">Dashboard</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" style="margin-right: 20px;" routerLink="/accountdetail">Account Details </a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" style="margin-right: 20px;" routerLink="/accountStatement">Account Statement </a>
+        </li>
+        <li class="nav-item dropdown" ngbDropdown>
+          <a class="nav-link dropdown-toggle"  role="button" data-bs-toggle="dropdown"  ngbDropdownToggle>
+            Fund Transfer
+          </a>
+          <ul class="dropdown-menu"  ngbDropdownMenu aria-labelledby="navbarScrollingDropdown">
+            <li ngbDropdownItem><a class="dropdown-item" routerLink="/addPayee">Add Payee</a></li>
+            <li ngbDropdownItem><a class="dropdown-item" routerLink="/payeeList">Payee List</a></li>
+            <li ngbDropdownItem><a class="dropdown-item" routerLink="/imps">IMPS</a></li>
+            <li ngbDropdownItem><a class="dropdown-item" routerLink="/neft">NEFT</a></li>
+            <li ngbDropdownItem><a class="dropdown-item" routerLink="/rtgs">RTGS</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" style="margin-right: 20px;"  routerLink="/changePassword">Reset Login Password</a>
+        </li>
+        <li class="nav-item">
+            <a  class="nav-link" (click)="deleteCookie()">Logout</a>
+          </li>
+      </ul>
+    </div>
+
+</nav>
+
+<div class="container-fluid  p-2 my-4 bg-dark text-white" style="text-align:center;">
+  <h1 style="transform:translateY(5px);">User Profile</h1>
+</div> 
+
+<div class="container" >
+<table class="table table-striped">
+<thead class="thead-light"></thead>
+<tbody>
+
+  <tr>
+  <th >Account Number</th>
+  <td>{{currentUser.accountId}}</td>
+  </tr>
+
+  <tr>
+    <th>
+      Customer Id
+    </th>
+    <td>{{currentUser.customerId}}</td>
+  </tr>
+  <tr>
+  <th scope="col">Balance</th>
+  <td>{{currentUser.balance|currency:'INR'}}</td>
+  </tr>
+  <tr>
+    <th scope="col">Account Opening Date</th>
+    <td>{{currentUser.accOpDate|date:'dd/MM/yyyy HH:mm:ss'}}</td>
+  </tr>
+ 
+  <tr>
+    <th scope="col">Account Status</th>
+    <td >{{currentUser.accountStatus ?'Active':'Deactivated'}}</td>
+  </tr>
+</tbody>
+</table>
+</div><br/>
+
