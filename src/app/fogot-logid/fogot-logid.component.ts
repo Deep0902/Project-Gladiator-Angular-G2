@@ -9,7 +9,7 @@ import { ServiceModuleService } from '../service-module.service';
 })
 export class FogotLogidComponent implements OnInit {
   accountId:number;
-  OTP:number=12345;
+  OTP:number=12345; // hard coded value
   constructor(private service:ServiceModuleService,private route:Router) { }
 
   ngOnInit(): void {

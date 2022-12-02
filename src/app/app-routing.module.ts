@@ -18,27 +18,29 @@ import { AddNewPayeeComponent } from './add-new-payee/add-new-payee.component';
 import { TransferSuccessfulComponent } from './transfer-successful/transfer-successful.component';
 import { PayeeListComponent } from './payee-list/payee-list.component';
 import { ContactusComponent } from './contactus/contactus.component';
+import { AdminLoginComponent } from './admin-login/admin-login.component';
 
 
 const routes: Routes = [
-  {path:'',component:HomeComponent},
-  {path:'userlogin',component:UserLogInComponent},
-  {path:"forgetPassword",component:ForgotPasswordComponent},
-{path:"changePassword",component:ChangePasswordComponent},
-{path:"createAccount",component:CreateAccountComponent},
-{path:"register",component:RegisterUserComponent},
-{path:"maindashboard",component:MainDashboardComponent},
-{path:"accountdetail",component:AccoutDetailComponent},
-{path:"adminPanel",component:AdminPanelComponent},
-{path:"forgetLogId",component:FogotLogidComponent},
-{path:"accountStatement",component:AccountStatementComponent},
-{path:"neft",component:NeftComponent},
-{path:"rtgs",component:RtgsComponent},
-{path:"imps",component:ImpsComponent},
-{path:"addPayee",component:AddNewPayeeComponent},
-{path:"transferSuccessful",component:TransferSuccessfulComponent},
-{path:"payeeList",component:PayeeListComponent},
-{path:"contactus", component:ContactusComponent}
+  { path: '', component: HomeComponent },
+  { path: 'userlogin', component: UserLogInComponent },
+  { path: "forgetPassword", component: ForgotPasswordComponent },
+  { path: "changePassword", component: ChangePasswordComponent },
+  { path: "createAccount", component: CreateAccountComponent },
+  { path: "register", component: RegisterUserComponent },
+  { path: "maindashboard", component: MainDashboardComponent },
+  { path: "accountdetail", component: AccoutDetailComponent },
+  { path: "adminPanel", component: AdminPanelComponent },
+  { path: "forgetLogId", component: FogotLogidComponent },
+  { path: "accountStatement", component: AccountStatementComponent },
+  { path: "neft", component: NeftComponent },
+  { path: "rtgs", component: RtgsComponent },
+  { path: "imps", component: ImpsComponent },
+  { path: "addPayee", component: AddNewPayeeComponent },
+  { path: "transferSuccessful", component: TransferSuccessfulComponent },
+  { path: "payeeList", component: PayeeListComponent },
+  { path: "contactus", component: ContactusComponent },
+  { path: "admin-login", component: AdminLoginComponent }
 
 ];
 
