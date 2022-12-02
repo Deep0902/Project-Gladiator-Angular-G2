@@ -5,9 +5,19 @@
 
 }
 
+#join{
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   font-weight: 400;
+    margin-left: 40%;
+}
 
+#heading{
+    text-align: center;
+    margin-left: -12%;
+    
+}
 .maintxt {
-    background-image: url("../../assets/bank.png");
+    /* background-image: url("../../assets/bank.png"); */
     min-height : 78%;
     min-width : 165%;
     background-size:100% 100%;
@@ -16,5 +26,9 @@
     overflow-x: hidden;
     margin-left: 0px;
     background-attachment: fixed;
+}
+
+.starting{
+    background-image: url("../../assets/Bank_Basic.png");
 }
 

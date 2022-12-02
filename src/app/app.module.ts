@@ -23,6 +23,7 @@ import { RtgsComponent } from './rtgs/rtgs.component';
 import { TransferSuccessfulComponent } from './transfer-successful/transfer-successful.component';
 import { PayeeListComponent } from './payee-list/payee-list.component';
 import { ContactusComponent } from './contactus/contactus.component';
+import { AdminLoginComponent } from './admin-login/admin-login.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { ContactusComponent } from './contactus/contactus.component';
     RtgsComponent,
     TransferSuccessfulComponent,
     PayeeListComponent,
-    ContactusComponent
+    ContactusComponent,
+    AdminLoginComponent
   ],
   imports: [
     BrowserModule,

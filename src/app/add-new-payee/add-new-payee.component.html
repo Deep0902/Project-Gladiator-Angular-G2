@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav style="background-color: #3B3B98; " class="navbar navbar-expand-lg navbar-dark">
     <a class="navbar-brand" style="margin-left:20px; margin-right: 200px; padding-right: 200px;" routerLink="" >Banking</a>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
@@ -48,24 +48,28 @@
         <label for="beneficiaryName"><h6>Beneficiary Name</h6></label>
         <input type="text" name="beneficiaryName" class="form-control" placeholder="Enter Beneficiary Name" #beneficiaryName="ngModel" ngModel>
       </div>
-    </div>
+    </div><br>
+
     <div class="container">
       <div class="row">
         <label for="beneficiaryAccount"><h6>Beneficiary Account Number</h6></label>
         <input type="number" name="beneficiaryAccount" class="form-control" placeholder="Enter Beneficiary Account Number" #beneficiaryAccount="ngModel" ngModel>
       </div>
-    </div>
+    </div><br>
+
     <div class="container">
       <div class="row">
         <label for="nickName"><h6>Nickname</h6></label>
         <input type="text" name="nickName" class="form-control" placeholder="Enter Nickname" #nickName="ngModel" ngModel>
       </div>
-    </div>
+    </div><br>
+
     <div class="container">
       <div class="row">
         <label for="accountId"><h6>Your Account Number</h6></label>
         <input type="number" name="accountId" class="form-control" placeholder="Enter Account Number" #accountId="ngModel" ngModel>
-      </div>
+      </div><br>
+      
       <br>
       <div style="text-align: center;"><button type="submit" class="btn btn-success" [disabled]="!myForm.valid">Submit</button>
       </div>

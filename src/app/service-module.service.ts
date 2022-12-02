@@ -53,7 +53,7 @@ PostAccount(newAccount:CreateUserAccount):Observable<any>{
 
 //Get data from userlogin
 GetLogIn():Observable<any>{
-  return this.http.get<any>((this.url)+"/userlogin");
+  return this.http.get<any>((this.url)+"/userlogin"); //web api is called here
 }
 
 GetLogInByAccountID(id:any):Observable<any>{
