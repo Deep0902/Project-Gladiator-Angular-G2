@@ -8,19 +8,18 @@ import { ServiceModuleService } from '../service-module.service';
   styleUrls: ['./create-account.component.css']
 })
 export class CreateAccountComponent implements OnInit {
- newAccount:Customer = new Customer();
-  constructor(private _service:ServiceModuleService,private route:Router) { }
+  newAccount: Customer = new Customer();
+  constructor(private _service: ServiceModuleService, private route: Router) { }
 
   ngOnInit(): void {
   }
 
-  onSubmit(myForm:any){
-   this.newAccount=myForm.value;
-   this._service.PostCreateNewAccount(myForm.value).subscribe(data=>
-    {
+  onSubmit(myForm: any) {
+    this.newAccount = myForm.value;
+    this._service.PostCreateNewAccount(myForm.value).subscribe(data => {
       console.log(myForm.value);
     });
-  alert("Form Submitted Successfully")
-  this.route.navigateByUrl("/userlogin");
+    alert("Form Submitted Successfully")
+    this.route.navigateByUrl("/userlogin");
   }
 }

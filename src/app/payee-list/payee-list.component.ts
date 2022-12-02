@@ -9,20 +9,21 @@ import { ServiceModuleService } from '../service-module.service';
   styleUrls: ['./payee-list.component.css']
 })
 export class PayeeListComponent implements OnInit {
- payees:Payee[]=[];
- accountId:number=parseInt(sessionStorage.getItem('UserAccountNumber')!)
-  constructor(private _service:ServiceModuleService,private route:Router) { }
+  payees: Payee[] = [];
+  accountId: number = parseInt(sessionStorage.getItem('UserAccountNumber')!)
+  constructor(private _service: ServiceModuleService, private route: Router) { }
 
   ngOnInit(): void {
-    this._service.GetPayeeListbyAccountId(this.accountId).subscribe(data=>{
+    this._service.GetPayeeListbyAccountId(this.accountId).subscribe(data => {
       this.payees.push(data);
-      },(err)=>{alert("Please Add Payee first");
+    }, (err) => {
+      alert("Please Add Payee first");
     });
-    
+
   }
-  deleteCookie(){
+  deleteCookie() {
     sessionStorage.clear();
     this.route.navigateByUrl("/userlogin");
-   }
-  
+  }
+
 }

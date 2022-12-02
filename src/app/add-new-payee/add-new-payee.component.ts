@@ -9,23 +9,23 @@ import { ServiceModuleService } from '../service-module.service';
   styleUrls: ['./add-new-payee.component.css']
 })
 export class AddNewPayeeComponent implements OnInit {
-   
-  newPayee:Payee = new Payee();
-  constructor(private _service:ServiceModuleService,private route:Router) { }
+
+  newPayee: Payee = new Payee();
+  constructor(private _service: ServiceModuleService, private route: Router) { }
 
   ngOnInit(): void {
   }
 
-  onSubmit(form:any){
-    this.newPayee=form.value;
+  onSubmit(form: any) {
+    this.newPayee = form.value;
     this._service.addPayee(this.newPayee).subscribe();
     alert("Payee added successfully");
     this.route.navigateByUrl("/maindashboard");
   }
 
-  deleteCookie(){
+  deleteCookie() {
     sessionStorage.clear();
     this.route.navigateByUrl("/userlogin");
-   }
-  
+  }
+
 }

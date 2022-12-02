@@ -8,20 +8,20 @@ import { UserAccountDetail } from 'src/Models/UserAccountDetail'
   styleUrls: ['./main-dashboard.component.css']
 })
 export class MainDashboardComponent implements OnInit {
- accountId:number=parseInt(sessionStorage.getItem('UserAccountNumber')!);
- currentUser:UserAccountDetail = new UserAccountDetail();
-  
-  constructor(private _service:ServiceModuleService,private router:Router) { }
+  accountId: number = parseInt(sessionStorage.getItem('UserAccountNumber')!);
+  currentUser: UserAccountDetail = new UserAccountDetail();
+
+  constructor(private _service: ServiceModuleService, private router: Router) { }
   ngOnInit(): void {
-   this._service.GetAccountById(this.accountId).subscribe(async data=>{
-       this.currentUser=data;
-       sessionStorage.setItem('UserCustomerId',JSON.stringify(this.currentUser.customerId));
-   })
+    this._service.GetAccountById(this.accountId).subscribe(async data => {
+      this.currentUser = data;
+      sessionStorage.setItem('UserCustomerId', JSON.stringify(this.currentUser.customerId));
+    })
   }
 
-  deleteCookie(){
+  deleteCookie() {
     sessionStorage.clear();
     this.router.navigateByUrl("/userlogin");
-   }
-  
+  }
+
 }

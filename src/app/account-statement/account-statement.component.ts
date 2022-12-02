@@ -10,19 +10,19 @@ import { ServiceModuleService } from '../service-module.service';
 })
 export class AccountStatementComponent implements OnInit {
 
-  accStatement:Transaction[]=[];
-  accountId:number=parseInt(sessionStorage.getItem('UserAccountNumber')!);
-  constructor(private _AccStatementService:ServiceModuleService,private route:Router) { }
+  accStatement: Transaction[] = [];
+  accountId: number = parseInt(sessionStorage.getItem('UserAccountNumber')!);
+  constructor(private _AccStatementService: ServiceModuleService, private route: Router) { }
 
   ngOnInit(): void {
-    this._AccStatementService.getAccStatement(this.accountId).subscribe(AccState=>
-      this.accStatement=AccState);
+    this._AccStatementService.getAccStatement(this.accountId).subscribe(AccState =>
+      this.accStatement = AccState);
   }
 
-  deleteCookie(){
+  deleteCookie() {
     sessionStorage.clear();
     this.route.navigateByUrl("/userlogin");
-   }
-  
+  }
+
 
 }

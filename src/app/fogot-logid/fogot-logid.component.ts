@@ -8,26 +8,26 @@ import { ServiceModuleService } from '../service-module.service';
   styleUrls: ['./fogot-logid.component.css']
 })
 export class FogotLogidComponent implements OnInit {
-  accountId:number;
-  OTP:number=12345; // hard coded value
-  constructor(private service:ServiceModuleService,private route:Router) { }
+  accountId: number;
+  OTP: number = 12345; // hard coded value
+  constructor(private service: ServiceModuleService, private route: Router) { }
 
   ngOnInit(): void {
   }
 
-  GetLogId(){
-   this.service.GetLogInByAccountID(this.accountId).subscribe(data=>{
-    
-    alert("Your Log Id is "+data.logId);
-      
-     },(err)=>{
+  GetLogId() {
+    this.service.GetLogInByAccountID(this.accountId).subscribe(data => {
+
+      alert("Your Log Id is " + data.logId);
+
+    }, (err) => {
       alert("You are not registered.");
       this.route.navigateByUrl("/register");
     }
-   );
-     
-    
-     }  
-    }
- 
-   
+    );
+
+
+  }
+}
+
+
