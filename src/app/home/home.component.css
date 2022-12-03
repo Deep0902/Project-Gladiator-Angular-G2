@@ -17,7 +17,7 @@
     
 }
 .maintxt {
-    /* background-image: url("../../assets/bank.png"); */
+    background-image: url("../../assets/Bank_Basic.png");
     min-height : 78%;
     min-width : 165%;
     background-size:100% 100%;
@@ -32,3 +32,14 @@
     background-image: url("../../assets/Bank_Basic.png");
 }
 
+#heading{
+    margin-left: 30px;
+}
+
+#join{
+    margin-left: 720px;
+    margin-top: 70px;
+}
+#photo{
+    background-image: url("../../assets/Bank_Basic.png");
+}

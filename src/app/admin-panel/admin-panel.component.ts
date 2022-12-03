@@ -28,6 +28,7 @@ export class AdminPanelComponent implements OnInit {
   Approval(customerId: any) {
     this.service.ApproveCustomer(customerId).subscribe();
     alert("Customer is approved");
+    this.route.navigateByUrl("/adminPanel");
 
     this.newUser = {
       customerId: Number(customerId),
