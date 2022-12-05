@@ -17,7 +17,7 @@ export class ImpsComponent implements OnInit {
   payeeDetails: UserAccountDetail = new UserAccountDetail();
   userBalance: any;
   payeeBalance: any;
-  constructor(private _RTGSService: ServiceModuleService, private router: Router) { }
+  constructor(private _IMPSService: ServiceModuleService, private router: Router) { }
   ngOnInit(): void {
   }
   onSubmit(form: any) {
@@ -29,16 +29,16 @@ export class ImpsComponent implements OnInit {
     sessionStorage.setItem("Amount", JSON.stringify(this.newIMPSTransaction.amount));
     sessionStorage.setItem("FromAcc", JSON.stringify(this.newIMPSTransaction.accountId));
     sessionStorage.setItem("Remarks", this.newIMPSTransaction.remarks);
-    this._RTGSService.getTransactionPwd(form.value.logId).subscribe(data => {
+    this._IMPSService.getTransactionPwd(form.value.logId).subscribe(data => {
       this.fetchedTransactionPwd = data.transactionPassword;
     });
     console.log(this.fetchedTransactionPwd)
     //Retrive User Details
-    this._RTGSService.GetAccountById(this.newIMPSTransaction.accountId).subscribe(data =>
+    this._IMPSService.GetAccountById(this.newIMPSTransaction.accountId).subscribe(data =>
       this.userDetails = data);
     this.userBalance = this.userDetails.balance;
     //Retrive Payee Details
-    this._RTGSService.GetAccountById(this.newIMPSTransaction.beneficiaryAccount).subscribe(data =>
+    this._IMPSService.GetAccountById(this.newIMPSTransaction.beneficiaryAccount).subscribe(data =>
       this.payeeDetails = data);
     this.payeeBalance = this.payeeDetails.balance;
     //match the transaction password
@@ -49,22 +49,22 @@ export class ImpsComponent implements OnInit {
 
         //if above condition is satisfied debit amount from user account
         this.userDetails.balance = this.userBalance - this.newIMPSTransaction.amount;
-        this._RTGSService.transferAmount(this.newIMPSTransaction.accountId, this.userDetails).subscribe(userdata =>
+        this._IMPSService.transferAmount(this.newIMPSTransaction.accountId, this.userDetails).subscribe(userdata =>
           console.log(userdata));
 
         //Add debit transaction
-        this._RTGSService.addTransaction(this.newIMPSTransaction).subscribe(data =>
+        this._IMPSService.addTransaction(this.newIMPSTransaction).subscribe(data =>
           console.log(this.newIMPSTransaction));
         //Update Payee balance
         this.payeeDetails.balance = this.payeeDetails.balance + this.newIMPSTransaction.amount;
-        this._RTGSService.transferAmount(this.newIMPSTransaction.beneficiaryAccount, this.payeeDetails).subscribe(payeedata =>
+        this._IMPSService.transferAmount(this.newIMPSTransaction.beneficiaryAccount, this.payeeDetails).subscribe(payeedata =>
           console.log(payeedata));
         //Add credit transaction
         this.newIMPSTransaction.transactionType = "Credit";
         var temp = this.newIMPSTransaction.accountId;
         this.newIMPSTransaction.accountId = this.newIMPSTransaction.beneficiaryAccount;
         this.newIMPSTransaction.beneficiaryAccount = temp;
-        this._RTGSService.addTransaction(this.newIMPSTransaction).subscribe(data =>
+        this._IMPSService.addTransaction(this.newIMPSTransaction).subscribe(data =>
           console.log(this.newIMPSTransaction));
         this.router.navigateByUrl('/transferSuccessful');
       }
