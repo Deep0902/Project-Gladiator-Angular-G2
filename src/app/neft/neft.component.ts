@@ -17,7 +17,7 @@ export class NeftComponent implements OnInit {
   payeeDetails: UserAccountDetail = new UserAccountDetail();
   userBalance: any;
   payeeBalance: any;
-  constructor(private _RTGSService: ServiceModuleService, private router: Router) { }
+  constructor(private _NEFTService: ServiceModuleService, private router: Router) { }
   ngOnInit(): void {
   }
   onSubmit(form: any) {
@@ -29,16 +29,16 @@ export class NeftComponent implements OnInit {
     sessionStorage.setItem("Amount", JSON.stringify(this.newNEFTTransaction.amount));
     sessionStorage.setItem("FromAcc", JSON.stringify(this.newNEFTTransaction.accountId));
     sessionStorage.setItem("Remarks", this.newNEFTTransaction.remarks);
-    this._RTGSService.getTransactionPwd(form.value.logId).subscribe(data => {
+    this._NEFTService.getTransactionPwd(form.value.logId).subscribe(data => {
       this.fetchedTransactionPwd = data.transactionPassword;
     });
     console.log(this.fetchedTransactionPwd)
     //Retrive User Details
-    this._RTGSService.GetAccountById(this.newNEFTTransaction.accountId).subscribe(data =>
+    this._NEFTService.GetAccountById(this.newNEFTTransaction.accountId).subscribe(data =>
       this.userDetails = data);
     this.userBalance = this.userDetails.balance;
     //Retrive Payee Details
-    this._RTGSService.GetAccountById(this.newNEFTTransaction.beneficiaryAccount).subscribe(data =>
+    this._NEFTService.GetAccountById(this.newNEFTTransaction.beneficiaryAccount).subscribe(data =>
       this.payeeDetails = data);
     this.payeeBalance = this.payeeDetails.balance;
     //match the transaction password
@@ -49,22 +49,22 @@ export class NeftComponent implements OnInit {
 
         //if above condition is satisfied debit amount from user account
         this.userDetails.balance = this.userBalance - this.newNEFTTransaction.amount;
-        this._RTGSService.transferAmount(this.newNEFTTransaction.accountId, this.userDetails).subscribe(userdata =>
+        this._NEFTService.transferAmount(this.newNEFTTransaction.accountId, this.userDetails).subscribe(userdata =>
           console.log(userdata));
 
         //Add debit transaction
-        this._RTGSService.addTransaction(this.newNEFTTransaction).subscribe(data =>
+        this._NEFTService.addTransaction(this.newNEFTTransaction).subscribe(data =>
           console.log(this.newNEFTTransaction));
         //Update Payee balance
         this.payeeDetails.balance = this.payeeDetails.balance + this.newNEFTTransaction.amount;
-        this._RTGSService.transferAmount(this.newNEFTTransaction.beneficiaryAccount, this.payeeDetails).subscribe(payeedata =>
+        this._NEFTService.transferAmount(this.newNEFTTransaction.beneficiaryAccount, this.payeeDetails).subscribe(payeedata =>
           console.log(payeedata));
         //Add credit transaction
         this.newNEFTTransaction.transactionType = "Credit";
         var temp = this.newNEFTTransaction.accountId;
         this.newNEFTTransaction.accountId = this.newNEFTTransaction.beneficiaryAccount;
         this.newNEFTTransaction.beneficiaryAccount = temp;
-        this._RTGSService.addTransaction(this.newNEFTTransaction).subscribe(data =>
+        this._NEFTService.addTransaction(this.newNEFTTransaction).subscribe(data =>
           console.log(this.newNEFTTransaction));
         this.router.navigateByUrl('/transferSuccessful');
       }
