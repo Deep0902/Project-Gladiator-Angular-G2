@@ -13,7 +13,7 @@ import { UserAccountDetail } from 'src/Models/UserAccountDetail';
 })
 export class ServiceModuleService {
   httpOptions = { headers: new HttpHeaders({ 'Content-type': 'application/json' }) };
-  url: string = "https://localhost:44393/api";
+  url: string = "https://localhost:44393/api"; // api url
   constructor(private http: HttpClient) { }
   //Get data from Customers table
   GetCreateNewAccount(): Observable<any> {
